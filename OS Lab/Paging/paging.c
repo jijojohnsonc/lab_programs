@@ -1,51 +1,84 @@
 #include <stdio.h>
 
-void fcfs(int page[], int n, int frame[], int size)
+int search(int frame[], int size, int key)
 {
-    int i;
-    int first_in[size];
-    for (i = 0; i < size; i++)
+    int i = 0, flag = 0;
+    while (i < size)
     {
-        frame[i] = page[i];
-        first_in[i] = frame[i];
-        printf("Miss\n");
-        for (x = 0; x <= i; x++)
-            printf("%d\t", frame[x]);
-        printf("\n");
+        if (key == frame[i])
+        {
+            flag = 1;
+            break;
+        }
+        i++;
     }
-    int j, no_of_page_faults = i;
-    for (j = size; j < n; j++)
-    {
-    	int flag = 0;
-    	for (int k = 0; k < i; k++)
-    	{
-    		if (page[i] == frame[k])
-    		{
-    			flag = 1;
-    			printf("Hit\n");
-    		}
-    		if (!flag)
-    		{
-    		no_of_page_faults++;
-    			printf("Miss\n");
-    			int l;
-    			for (l = 0; l < k; l++)
-    			{
-    				if (frame[l] == first_in[0])
-    				{
-    					for (m = 1; m < size; m++)
-    						first_in[m - 1] = first_in[m];
-    					frame[l] = page[i];
-    					first_in[size - 1] = page[i];
-    					i = (i + 1) % size;
-    				}	
-    			}
-    		}
-    		for (x = 0; x < size; x++)
-            		printf("%d\t", frame[x]);
-    	}
-    }
+    return flag;
 }
+
+void print_frame(int frame[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if(frame[i] != -1)
+		{
+		    printf("%d ",frame[i]);
+		}
+		else
+		{
+		    break;
+		}
+	}
+	printf("\n");
+}
+
+void fifo(int page[], int n, int frame[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		frame[i] = -1;
+	int no_of_page_faults = 0;
+	i = 0;
+	for (int j = 0; j < n; j++)
+	{
+		if (!search(frame, size, page[j]))
+		{
+			frame[(i + size) % size] = page[j];
+			no_of_page_faults++;
+			print_frame(frame, size);
+			i++;
+		}
+	}
+	printf("No. of page faults = %d\n", no_of_page_faults);
+}
+
+
+void lru(int page[], int n, int frame[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		frame[i] = -1;
+	int no_of_page_faults = 0;
+	i = 0;
+	int recent_index[size];
+	for (i = 0; i < size; i++)
+		recent_index[i] = -1;
+	for (int j = 0; j < n; j++)
+	{
+		if (!search(frame, size, page[j]))
+		{
+			for (int k = 0; k < size; k++)
+			{
+				for (int l = 0; l < j; k++)
+				{
+					if (frame[k] == page[l])
+						recent_index[k] = l;
+				}
+				int least = recent_index[0];
+		}
+	}
+	
+}
+
 
 void main()
 {
@@ -68,18 +101,18 @@ void main()
 		printf("\n1) FIFO\n");
 		printf("2) LRU\n");
 		printf("3) LFU\n");
-        		printf("4) Exit\n");
-        		printf("Enter your choice : ");	
+        	printf("4) Exit\n");
+        	printf("Enter your choice : ");
 		scanf("%d", &opt);
 		if (opt == 1)
         		{
-			fcfs(page, n, frame, size);
+			fifo(page, n, frame, size);
         		}
 		else if (opt == 2)
         		{
 ;
         		}
-        		else if (opt == 3)
+        		else if (opt == 4)
 			break;
 		else
 			printf("Invalid entry");
