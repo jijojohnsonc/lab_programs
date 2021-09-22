@@ -6,10 +6,16 @@ void fcfs(int page[], int n, int frame[], int size)
     for (i = 0; i < size; i++)
     {
         frame[i] = page[i];
+        for (x = 0; x <= i; x++)
+            printf("%d\t", frame[x]);
+        prinf()
     }
     i = 0;
     int j, no_page_faults;
     for (j = size; j < n; j++)
+    {
+
+    }
 }
 
 void main()
