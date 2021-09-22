@@ -1,0 +1,32 @@
+Enter the value of n : 5
+(1) P#1338
+(2) P#1339, child of P#1338
+(2) P#1340, child of P#1338
+(3) P#1341, child of P#1339
+(3) P#1342, child of P#1339
+(3) P#1343, child of P#1340
+(3) P#1344, child of P#1340
+(4) P#1345, child of P#1341
+(4) P#1350, child of P#1344
+(4) P#1347, child of P#1343
+(4) P#1352, child of P#1344
+(4) P#1351, child of P#1343
+(5) P#1354, child of P#1345
+(5) P#1355, child of P#1350
+(4) P#1346, child of P#1342
+(5) P#1359, child of P#1345
+(5) P#1361, child of P#1347
+(5) P#1360, child of P#1352
+(5) P#1362, child of P#1351
+(5) P#1353, child of P#1350
+(4) P#1349, child of P#1341
+(4) P#1348, child of P#1342
+(5) P#1364, child of P#1346
+(5) P#1357, child of P#1347
+(5) P#1363, child of P#1346
+(5) P#1358, child of P#1351
+(5) P#1356, child of P#1352
+(5) P#1365, child of P#1349
+(5) P#1366, child of P#1348
+(5) P#1367, child of P#1349
+(5) P#1368, child of P#1348

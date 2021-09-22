@@ -1,0 +1,5 @@
+Enter the value of n : 12
+Fibonacci sequence (child process) :
+0  1  1  2  3  5  8  13  21  34  55  89  
+Prime numbers (parent process) :
+2  3  5  7  11  13  17  19  23  29  31  37  
